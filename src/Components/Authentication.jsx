@@ -3,7 +3,8 @@ import Login from './Login'
 import Signup from './Signup'
 
 function Authentication() {
-    const [active, setActive] = useState('login')
+    const [active, setActive] = useState('login');
+
     return (
         <div className='authentication'>
             {active === "login" ? (
@@ -19,7 +20,6 @@ function Authentication() {
                     <button onClick={() => setActive('login')}>Log in</button>
                 </>
             )}
-
         </div>
     )
 }

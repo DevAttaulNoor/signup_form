@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { auth } from './Firebase/firebase';
+import { loginUser, setLoading } from './Redux/userSlice';
 import Home from './Components/Home';
-import { auth } from './Components/Firebase/firebase';
-import { loginUser, setLoading } from './Components/Redux/userSlice';
-import Loader from './Components/Loader';
 import Authentication from './Components/Authentication';
+import Loader from './Components/Loader';
 
 function App() {
-    const dispatch = useDispatch()
+    const user = useSelector((state) => state.data.user.user);
+    const loading = useSelector((state) => state.data.user.isLoading);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         auth.onAuthStateChanged(authUser => {
@@ -21,23 +23,25 @@ function App() {
             }
 
             else {
+                dispatch(setLoading(false));
                 console.log('User is not log in')
             }
         })
     }, [])
 
-    const user = useSelector((state) => state.data.user.user)
-    const loading = useSelector((state) => state.data.user.isLoading)
-
     return (
         <div className="App">
-
-            {user ? (
-                <Home />
+            {loading ? (
+                <Loader />
             ) : (
-                <Authentication />
+                <>
+                    {user ? (
+                        <Home />
+                    ) : (
+                        <Authentication />
+                    )}
+                </>
             )}
-
         </div>
     );
 }

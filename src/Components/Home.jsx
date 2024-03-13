@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { auth } from './Firebase/firebase'
-import { logoutUser } from './Redux/userSlice'
 import { signOut } from 'firebase/auth'
+import { auth } from '../Firebase/firebase'
+import { logoutUser } from '../Redux/userSlice'
 
 function Home() {
     const user = useSelector((state) => state.data.user.user)
@@ -12,8 +12,6 @@ function Home() {
         dispatch(logoutUser());
         signOut(auth);
     }
-
-    console.log(user)
     
     return (
         <div className='home'>
