@@ -1,24 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useSelector } from 'react-redux';
 import Login from './Login'
 import Signup from './Signup'
 
 function Authentication() {
-    const [active, setActive] = useState('login');
+    const active = useSelector((state) => state.data.form.active)
 
     return (
-        <div className='authentication'>
+        <div id='authentication' className='flex items-center justify-center w-full h-screen'>
             {active === "login" ? (
-                <>
-                    <Login />
-                    <p>Don't have a account</p>
-                    <button onClick={() => setActive('signup')}>Sign Up</button>
-                </>
+                <Login />
             ) : (
-                <>
-                    <Signup />
-                    <p>Have a account</p>
-                    <button onClick={() => setActive('login')}>Log in</button>
-                </>
+                <Signup />
             )}
         </div>
     )

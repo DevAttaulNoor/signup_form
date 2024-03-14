@@ -12,22 +12,24 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        auth.onAuthStateChanged(authUser => {
+        const unsubscribe = auth.onAuthStateChanged(authUser => {
             if (authUser) {
                 dispatch(loginUser({
                     uid: authUser.uid,
                     username: authUser.displayName,
                     email: authUser.email,
-                }))
+                }));
                 dispatch(setLoading(false));
+            } else {
+                dispatch(setLoading(false));
+                console.log('User is not logged in');
             }
+        });
 
-            else {
-                dispatch(setLoading(false));
-                console.log('User is not log in')
-            }
-        })
-    }, [])
+        return () => {
+            unsubscribe();
+        };
+    }, [dispatch]);
 
     return (
         <div className="App">
