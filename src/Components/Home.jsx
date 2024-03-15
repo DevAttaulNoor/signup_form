@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { signOut } from 'firebase/auth'
 import { auth, db, storage } from '../Firebase/firebase'
@@ -73,12 +73,13 @@ function Home() {
                 />
             </div>
 
-            <p className='mb-6 text-4xl font-extrabold'>
-                Welcome!
-                <span className='uppercase'> {user.username} </span>
-            </p>
+            <p className='mb-1 text-4xl font-extrabold'>Welcome!</p>
+            <span className='mb-5 text-2xl font-extrabold uppercase'> {user.username} </span>
 
-            <button onClick={handleLogout} className='py-3 px-10 rounded-[25px] border border-[#fff] font-semibold w-fit transition ease-in-out duration-300 hover:bg-[#fff] hover:text-[#000] hover:border-[#000]'>
+            <button
+                onClick={handleLogout}
+                className='py-3 px-10 rounded-[25px] border border-[#fff] font-semibold w-fit transition ease-in-out duration-300 hover:bg-[#fff] hover:text-[#000] hover:border-[#000]'
+            >
                 Log out
             </button>
         </div>
