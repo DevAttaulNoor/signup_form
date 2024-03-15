@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { auth } from './Firebase/firebase';
 import { loginUser, setLoading } from './Redux/userSlice';
+import { auth } from './Firebase/firebase';
 import Home from './Components/Home';
-import Authentication from './Components/Authentication';
 import Loader from './Components/Loader';
+import Authentication from './Components/Authentication';
 
 function App() {
     const user = useSelector((state) => state.data.user.user);

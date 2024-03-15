@@ -1,15 +1,19 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from 'firebase/auth'
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import "firebase/compat/storage"
+import firebase from "firebase/compat/app"
 
-const firebaseConfig = {
-    apiKey: "AIzaSyC7KMPxLFe_-cFPiR3vu15cmZc4Jt8p0ZI",
-    authDomain: "react-signupform-f83e4.firebaseapp.com",
-    projectId: "react-signupform-f83e4",
-    storageBucket: "react-signupform-f83e4.appspot.com",
-    messagingSenderId: "423591009244",
-    appId: "1:423591009244:web:ba248a31039cfa83660d19"
-};
+const firebaseConfig = firebase.initializeApp({
+    apiKey: "AIzaSyA42dNQgljixPg86xjb2SmD25J4iYm1et4",
+    authDomain: "react-userauthform.firebaseapp.com",
+    projectId: "react-userauthform",
+    storageBucket: "react-userauthform.appspot.com",
+    messagingSenderId: "713375983757",
+    appId: "1:713375983757:web:13ccde342d619e42dc1ac4"
+});
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth();
+const auth = firebase.auth()
+const storage = firebase.storage();
+const db = firebaseConfig.firestore();
+
+export { auth, storage, db }

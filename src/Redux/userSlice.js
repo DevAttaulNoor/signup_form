@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     user: null,
+    profileImg: '',
     isLoading: true,
 }
 
@@ -20,7 +21,11 @@ export const userSlice = createSlice({
         setLoading: (state, action) => {
             state.isLoading = action.payload;
         },
+
+        setProfileImg: (state, action) => {
+            state.profileImg = action.payload;
+        },
     }
 })
 
-export const {loginUser, logoutUser, setLoading} = userSlice.actions;
+export const {loginUser, logoutUser, setLoading, setProfileImg} = userSlice.actions;
