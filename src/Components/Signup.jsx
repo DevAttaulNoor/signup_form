@@ -29,14 +29,14 @@ function Signup() {
     }
 
     return (
-        <div id='signup' className='flex items-stretch shadow-2xl w-[920px]'>
+        <div id='signup' className='flex items-stretch shadow-2xl w-[860px] h-[520px]'>
             <div id="signupLeft" className='bg-gradient-to-r from-[#ff416c] to-[#ff4b2b] flex-[0.5] px-[60px] text-center flex flex-col justify-center items-center'>
                 <h1 className='text-4xl font-extrabold mb-7'>Welcome Back!</h1>
                 <p className='mb-7'>If you have already signup with us please login with your personal info.</p>
                 <button onClick={handleToggle} className='py-3 px-10 rounded-[25px] border border-[#fff] font-semibold w-fit transition ease-in-out duration-300 hover:bg-[#fff] hover:text-[#000] hover:border-[#000]'>Log In</button>
             </div>
 
-            <div id="signupRight" className='flex flex-col text-[#000] px-[60px] py-[90px] flex-[0.5] bg-[#fff] text-center'>
+            <div id="signupRight" className='flex flex-col justify-center items-center text-[#000] px-[60px] flex-[0.5] bg-[#fff] text-center'>
                 <div id="signupRight_Top">
                     <h1 className='text-4xl font-extrabold mb-7'>Sign Up</h1>
                 </div>
@@ -47,7 +47,7 @@ function Signup() {
                         value={username}
                         onChange={(event) => setUsername(event.target.value)}
                         placeholder='Username'
-                        className='py-3 px-4 mb-3 bg-[lightgray] placeholder:text-[gray]'
+                        className='py-3 px-4 mb-3 bg-[lightgray] outline-none placeholder:text-[gray]'
                     />
 
                     <input type="email"
@@ -55,7 +55,7 @@ function Signup() {
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                         placeholder='Email'
-                        className='py-3 px-4 mb-3 bg-[lightgray] placeholder:text-[gray]'
+                        className='py-3 px-4 mb-3 bg-[lightgray] outline-none placeholder:text-[gray]'
                     />
 
                     <input type="password"
@@ -63,7 +63,7 @@ function Signup() {
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                         placeholder='Password'
-                        className='py-3 px-4 mb-3 bg-[lightgray] placeholder:text-[gray]'
+                        className='py-3 px-4 mb-3 bg-[lightgray] outline-none placeholder:text-[gray]'
                     />
                 </div>
 
