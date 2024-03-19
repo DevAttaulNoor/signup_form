@@ -29,14 +29,14 @@ function Signup() {
     }
 
     return (
-        <div id='signup' className='flex items-stretch shadow-2xl w-[860px] h-[520px]'>
-            <div id="signupLeft" className='bg-gradient-to-r from-[#ff416c] to-[#ff4b2b] flex-[0.5] px-[60px] text-center flex flex-col justify-center items-center'>
+        <div id='signup' className='flex items-stretch shadow-2xl lg:w-[860px] lg:h-[520px] md:w-[680px] md:h-[460px] sm:w-[560px] sm:h-[420px] max-sm:flex-col max-sm:justify-center w-[320px] h-[380px]'>
+            <div id="signupLeft" className='bg-gradient-to-r from-[#ff416c] to-[#ff4b2b] flex-[0.5] lg:px-[60px] md:px-[40px] sm:px-[20px] max-sm:p-[20px] text-center flex flex-col justify-center items-center'>
                 <h1 className='text-4xl font-extrabold mb-7'>Welcome Back!</h1>
                 <p className='mb-7'>If you have already signup with us please login with your personal info.</p>
                 <button onClick={handleToggle} className='py-3 px-10 rounded-[25px] border border-[#fff] font-semibold w-fit transition ease-in-out duration-300 hover:bg-[#fff] hover:text-[#000] hover:border-[#000]'>Log In</button>
             </div>
 
-            <div id="signupRight" className='flex flex-col justify-center items-center text-[#000] px-[60px] flex-[0.5] bg-[#fff] text-center'>
+            <div id="signupRight" className='flex flex-col justify-center items-center text-[#000] lg:px-[60px] md:px-[40px] sm:px-[20px] max-sm:p-[20px] flex-[0.5] bg-[#fff] text-center'>
                 <div id="signupRight_Top">
                     <h1 className='text-4xl font-extrabold mb-7'>Sign Up</h1>
                 </div>

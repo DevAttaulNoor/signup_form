@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { signOut } from 'firebase/auth'
 import { auth, db, storage } from '../Firebase/firebase'
@@ -8,6 +8,7 @@ function Home() {
     const user = useSelector((state) => state.data.user.user);
     const profileImg = useSelector((state) => state.data.user.profileImg);
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
 
     const handleFileChange = async (event) => {
         try {
@@ -44,6 +45,7 @@ function Home() {
                         dispatch(setProfileImg(data.photoURL));
                     }
                 }
+                setLoading(false);
             }
 
             catch (error) {
@@ -56,10 +58,17 @@ function Home() {
         }
     }, [dispatch, user]);
 
+
     return (
         <div id='home' className='flex flex-col items-center justify-center w-full h-screen bg-gradient-to-r from-[#ff4b2b] to-[#ff416c]'>
             <div className='flex flex-col items-center mb-5'>
-                <img src={profileImg} alt="profilepic" className='w-[86px] h-[86px] border-[2px] border-[#fff] rounded-[50%] object-cover' />
+                {loading ? (
+                    <div className='flex items-center justify-center w-[86px] h-[86px] border-[2px] border-[#fff] rounded-[50%] bg-gradient-to-r from-[#ff4b2b] to-[#ff416c]'>
+                        <div className="w-8 h-8 border-4 border-gray-200 rounded-full loader border-t-gray-700 animate-spin"></div>
+                    </div>
+                ) : (
+                    <img src={profileImg} alt="img" className='w-[86px] h-[86px] border-[2px] border-[#fff] rounded-[50%] object-cover' />
+                )}
 
                 <label htmlFor="imageUpload" className='mt-1 text-xs hover:cursor-pointer'>
                     Change Profile Pic
